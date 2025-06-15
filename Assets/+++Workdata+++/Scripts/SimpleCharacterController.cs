@@ -4,9 +4,13 @@ public class SimpleCharacterController : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D body;
-    private bool grounded; //behält den Überblick ob Spieler auf dem Boden ist
+
+    private bool grounded; 
+    //behält den Überblick ob Spieler auf dem Boden ist
+    
     private Animator animateur;
 
+    
     private void Awake() //wird sofort aufgerufen wenn das Script gestartet wird
     {
         //wird nachschauen ob es den Komponenten gibt und legt es in der Body Variable ab
@@ -20,8 +24,9 @@ public class SimpleCharacterController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
         //wie schnell sich der Playerchara bewegt und in welcher Richtung
+        body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
+        
 
         if (horizontalInput > 0.01f)
             transform.localScale = Vector3.one;
@@ -36,13 +41,14 @@ public class SimpleCharacterController : MonoBehaviour
         animateur.SetBool("grounded", grounded);
 
     }
-
+    
     private void Jump() //wird aufgerufen wenn der Spieler springt
     {
         body.linearVelocity = new Vector2(body.linearVelocity.x, 9f);
         grounded = false;
     }
 
+    
     private void OnCollisionEnter2D(Collision2D collision) //wird aufgerufen wenn der Spieler mit dem Boden kollidiert
     {
         if (collision.gameObject.tag == "Ground") //wenn der Spieler mit dem Boden kollidiert
