@@ -23,10 +23,10 @@ public class SimpleCharacterController : MonoBehaviour
         body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
         //wie schnell sich der Playerchara bewegt und in welcher Richtung
 
-        if (horizontalInput>0.01f)
+        if (horizontalInput > 0.01f)
             transform.localScale = Vector3.one;
         else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1,1,1);
+            transform.localScale = new Vector3(-1, 1, 1);
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             Jump();
@@ -39,9 +39,8 @@ public class SimpleCharacterController : MonoBehaviour
 
     private void Jump() //wird aufgerufen wenn der Spieler springt
     {
-        body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
+        body.linearVelocity = new Vector2(body.linearVelocity.x, 9f);
         grounded = false;
-        animateur.SetTrigger("Jump"); //bezogen auf Parameter Jump
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //wird aufgerufen wenn der Spieler mit dem Boden kollidiert
