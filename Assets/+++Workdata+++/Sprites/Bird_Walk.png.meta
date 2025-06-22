@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bird_Walk_0: -9138180188263509396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

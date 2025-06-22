@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 
 {
 
-    [SerializeField] public int collectableCount;
+    [SerializeField] public int collectableCount = 7;
     [SerializeField] public int maxSunflower = 7;
     [SerializeField] public UInterface uiManager;
 
@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
     {
         collectableCount++;
         uiManager.ChangeNumberText(collectableCount);
-        Debug.Log(collectableCount);
+        Debug.Log("Gesammelt" + collectableCount + " / " + maxSunflower);
 
 
-        if (collectableCount == maxSunflower)
+        if (collectableCount >= maxSunflower)
         {
             uiManager.WinPanelOn();
             uiManager.GameLevelPanelOff();

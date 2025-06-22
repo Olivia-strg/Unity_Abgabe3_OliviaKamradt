@@ -72,7 +72,6 @@ public class SimpleCharacterController : MonoBehaviour
     {
         if (other.CompareTag("Sunflower"))
         {
-            Debug.Log("Sunflower eingesammelt");
             Destroy(other.gameObject);
             gameManager.AddOne();  
         }
