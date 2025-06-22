@@ -6,7 +6,7 @@ public class SimpleCharacterController : MonoBehaviour
     private Rigidbody2D body;
 
     private bool grounded; 
-    //behält den Überblick ob Spieler auf dem Boden ist
+    //behÃ¤lt den Ãœberblick ob Spieler auf dem Boden ist
     
     private Animator animateur;
 
@@ -37,7 +37,7 @@ public class SimpleCharacterController : MonoBehaviour
             Jump();
 
         //legt animator parameters fest
-        animateur.SetBool("Walk", horizontalInput != 0); //wenn wasd nicht gedrückt sind ist der input 0
+        animateur.SetBool("Walk", horizontalInput != 0); //wenn wasd nicht gedrÃ¼ckt sind ist der input 0
         animateur.SetBool("grounded", grounded);
 
     }
