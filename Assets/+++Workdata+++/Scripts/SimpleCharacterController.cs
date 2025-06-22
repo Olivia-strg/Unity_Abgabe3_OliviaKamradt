@@ -5,6 +5,9 @@ public class SimpleCharacterController : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D body;
 
+    [SerializeField] public GameManager gameManager;
+    [SerializeField] public UInterface uInterfaceManager;
+
     private bool grounded; 
     //behält den Überblick ob Spieler auf dem Boden ist
     
@@ -48,10 +51,35 @@ public class SimpleCharacterController : MonoBehaviour
         grounded = false;
     }
 
-    
+
     private void OnCollisionEnter2D(Collision2D collision) //wird aufgerufen wenn der Spieler mit dem Boden kollidiert
     {
         if (collision.gameObject.tag == "Ground") //wenn der Spieler mit dem Boden kollidiert
+        {
             grounded = true; //setzt die Variable auf true
+        }
+        else if (collision.gameObject.tag == "Enemy")
+       
+        {
+            Debug.Log("Gegner getroffen!");
+            uInterfaceManager.GameOverPanelOn();
+            uInterfaceManager.GameLevelPanelOff();
+
+        }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Sunflower"))
+        {
+            Debug.Log("Sunflower eingesammelt");
+            Destroy(other.gameObject);
+            gameManager.AddOne();  
+        }
+
+
+    }
+
+
+
 }
